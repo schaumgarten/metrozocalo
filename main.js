@@ -4,7 +4,7 @@ var yPositionCurrent = 0;
 var xPositionNext=0;
 var yPositionNext=0;
 var travelLog = [];
-var numberOfPieces = 8;
+var numberOfSlots = 9;
 var verticalTrack = {
     id : 1,
     position: [2,0], 
@@ -123,22 +123,22 @@ var upLeftTrack = {
 } 
 
 
-// downLeftTrack.task(xPosition,yPosition);
-// console.log(xPosition,yPosition);
-// cuadricula[0].splice(2,1,xPosition,yPosition);
-// console.log(cuadricula)
-
 cuadricula = [[horizontalTrack,downRightTrack,upRightTrack],[downLeftTrack,crossingTrack,upLeftTrack],[verticalTrack,"",""]];
 function  tracePath(valorX,valorY){
-    var x = valorX;
-    var y = valorY;
-    travelLog.push(x,y);
-    var piece = cuadricula[x][y];
-    piece.task(xPositionCurrent,yPositionCurrent);
+    var piece = cuadricula[valorX][valorY];
+    if(typeof piece == 'object'){
+        piece.task(xPositionCurrent,yPositionCurrent);
+    } else {
+        return false;
+    }
 }
 
-for (var i = 0; i<numberOfPieces; i++){
-    tracePath(xPositionNext,yPositionNext);
-    console.log(xPositionCurrent,yPositionCurrent);
+for (var i = 0; i<numberOfSlots; i++){
+    var fun = tracePath(xPositionNext,yPositionNext);
+    if (fun == false){
+        break;
+    } else {
+        travelLog.push(xPositionCurrent,yPositionCurrent);
+    }
 }
 console.log(travelLog);
