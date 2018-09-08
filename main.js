@@ -103,13 +103,11 @@ function checkIfWinner(){
 }
 
 function startGame(){
+    drawTrain();
     drawCanvas();
     drawSelector();
     drawStock();
-    // setInterval(function(){
-       
-        
-    // },1000/100);
+    animateTrain();  
 }
 
 
@@ -121,6 +119,8 @@ var startButton = document.getElementById("start-button");
 startButton.onclick =function(){
     startGame()
 };
+
+var tren = new Train();
 
 
 document.addEventListener("keydown", function(e){
@@ -137,17 +137,20 @@ document.addEventListener("keydown", function(e){
         selectorY -= 1;
         absoluteY -= 70;
       }
-    if(e.keyCode === 40 && absoluteY < 540){
+    if(e.keyCode === 40 && absoluteY < 470){
         selectorY += 1;
         absoluteY += 70;
       }
       if(e.keyCode === 65){
         placeOnCanvas();
     }
+    
     drawCanvas();
     drawSelector();
     drawGrid();
     drawStock();
+    //drawTrain();
+   
   });
   
 
