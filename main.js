@@ -7,16 +7,15 @@ cuadricula.forEach(function(col){
         col.push("");
     }
 })
-console.log(cuadricula);
-//var cuadricula = [[1,2,3],[4,5,6],[7,8,9]];
 var xPositionCurrent = -1;
 var yPositionCurrent = 0;
 var xPositionNext=0;
 var yPositionNext=0;
 var travelLog = [];
-var numberOfSlots = 9;
+var numberOfSlots = 70;
 var piecesArray = [];
 var piecesPlaced = 0;
+var pathPieces = []
 
 function  tracePath(valorX,valorY){
     var piece = cuadricula[valorX][valorY];
@@ -59,7 +58,7 @@ function formArray(){
 function  tracePath(valorX,valorY){
     var piece = cuadricula[valorX][valorY];
     if(typeof piece == 'object'){
-        console.log(piece);
+        pathPieces.push(piece);
         piece.task(xPositionCurrent,yPositionCurrent);
     } else {
         return false;
@@ -69,6 +68,7 @@ function  tracePath(valorX,valorY){
 //
 function verifyPath(){
     for (var i = 0; i<numberOfSlots; i++){
+        console.log(i);
         var fun = tracePath(xPositionNext,yPositionNext);
         if (fun == false){
             return;
@@ -77,7 +77,7 @@ function verifyPath(){
         }
     }
 }
-console.log(travelLog);
+// console.log(travelLog);
 
 function placePiece(x,y){
     piecesPlaced++;
@@ -103,11 +103,12 @@ function checkIfWinner(){
 }
 
 function startGame(){
-    drawTrain();
+    //drawTrain();
     drawCanvas();
+    drawGridLines();
     drawSelector();
     drawStock();
-    animateTrain();  
+    //animateTrain();  
 }
 
 
@@ -146,6 +147,7 @@ document.addEventListener("keydown", function(e){
     }
     
     drawCanvas();
+    drawGridLines();
     drawSelector();
     drawGrid();
     drawStock();

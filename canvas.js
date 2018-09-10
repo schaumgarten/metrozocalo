@@ -13,8 +13,12 @@ function drawCanvas(){
     ctx.strokeRect(0,0,canvas.width,canvas.height);
     ctx.strokeRect(150,80,700,490);
     ctx.strokeRect(44,80,70,350);
-    
-    
+     
+}
+
+function drawGridLines(){
+    ctx.strokeStyle = "grey";
+    ctx.lineWidth = 1;
     for (var i = 0; i < 9; i++){
         var coeficiente = 70*i;
         ctx.beginPath();
@@ -30,7 +34,6 @@ function drawCanvas(){
         ctx.lineTo(850,150+coeficiente);
         ctx.stroke();
     }
-    
 }
 
 function drawSelector(){
@@ -59,9 +62,7 @@ function drawGrid(){
                 image.src = origin;
                 image.onload = function(){
                 ctx.drawImage(image, 150 + (slot.position[0]*70), 80 + (slot.position[1]*70), 70,70);
-                let t = new Train();
-                t.draw();
-    }
+               }
             }
         })
     });
@@ -79,12 +80,17 @@ function drawStock(){
     })
 }
 
-function drawTrain(){
-    var image = new Train();
-    // image.trainBack.onload = function(){
-    // }
-    image.draw();
-      
+function moveTrain(){
+    let loop = 0;
+    var int = setInterval(moving,(1000/60)*70);
+    function moving(){
+        if (loop<pathPieces.length){
+            pathPieces[loop].animate();
+            loop++;
+        } else {
+            clearInterval(int);
+        }       
+    }
 }
 
 function animateTrain(){
@@ -119,7 +125,7 @@ function animateTrain(){
       if (150+frames <220 && 150+frames>135){
         ctx.drawImage(movingTrain.front, 150+frames, 80, 35, 70);
        }
-       ctx.clearRect(135,80,13,70);
+       //ctx.clearRect(135,80,13,70);
     frames++; 
     
 },1000/60);
