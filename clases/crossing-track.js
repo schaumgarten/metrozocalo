@@ -152,29 +152,29 @@ class CrossingTrack {
             } else if (dir[0] === 3){
                 if (cuadros < 220){
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
+                    if((cornerY + 54) - cuadros > cornerY - 35 && (cornerY + 54) - cuadros < (cornerY + 50)){
+                        ctx.drawImage(trenecitoB.trainBack,cornerX,(cornerY + 54) - cuadros, 70, 35);
+                    }
                     if((cornerY + 70) - cuadros > cornerY - 35 && (cornerY + 70) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.trainBack,cornerX,(cornerY + 70) - cuadros, 70, 35);
+                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY + 70) - cuadros, 70, 35);
                     }
                     if((cornerY + 86) - cuadros > cornerY - 35 && (cornerY + 86) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY + 86) - cuadros, 70, 35);
+                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY + 86) - cuadros, 70, 35);
                     }
                     if((cornerY + 102) - cuadros > cornerY - 35 && (cornerY + 102) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY + 102) - cuadros, 70, 35);
+                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY + 102) - cuadros, 70, 35);
                     }
                     if((cornerY + 118) - cuadros > cornerY - 35 && (cornerY + 118) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY + 118) - cuadros, 70, 35);
+                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY + 118) - cuadros, 70, 35);
                     }
                     if((cornerY + 134) - cuadros > cornerY - 35 && (cornerY + 134) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY + 134) - cuadros, 70, 35);
+                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY + 134) - cuadros, 70, 35);
                     }
                     if((cornerY + 150) - cuadros > cornerY - 35 && (cornerY + 150) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY + 150) - cuadros, 70, 35);
+                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY + 150) - cuadros, 70, 35);
                     }
                     if((cornerY + 166) - cuadros > cornerY - 35 && (cornerY + 166) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY + 166) - cuadros, 70, 35);
-                    }
-                    if((cornerY + 182) - cuadros > cornerY - 35 && (cornerY + 182) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.front,cornerX,(cornerY + 182) - cuadros, 70, 35);
+                        ctx.drawImage(trenecitoB.front,cornerX,(cornerY + 166) - cuadros, 70, 35);
                     }
                     cuadros++; 
                 } else {

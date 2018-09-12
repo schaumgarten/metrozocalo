@@ -34,7 +34,7 @@ class UpRightTrack {
         var cornerY = (this.position[1]*70)+80; 
         var dir = this.direction;
         var frames = this.frames;
-        var int = setInterval(movie,1000/20);
+        var int = setInterval(movie,1000/60);
         
         function movie(){
             if (dir === 0){
@@ -66,35 +66,35 @@ class UpRightTrack {
                         ctx.drawImage(movingTrain.front, (cornerX + 182) - frames, cornerY, 35, 70);
                     }
                     //sección vertical 
-                    //if((cornerY + 42) - frames > cornerY - 35 && (cornerY +42) - frames < (cornerY + 15)){
-                    if (frames > 35 && frames < 70){
-                        ctx.drawImage(secondTrain.trainBack,cornerX,(cornerY + 30) - frames, 70, 35);
+                    if((cornerY + 54) - frames > cornerY - 35 && (cornerY + 54) - frames < (cornerY + 15)){
+                        ctx.drawImage(secondTrain.trainBack,cornerX,(cornerY +42) - frames, 70, 35);
                     }
-                    if (frames > 51 && frames < 70){
-                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 46) - frames, 70, 35);
+                    if((cornerY + 70) - frames > cornerY - 35 && (cornerY + 70) - frames < (cornerY + 15)){
+                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 58) - frames, 70, 35);
                     }
-                    if (frames > 67 && frames < 70){
-                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 62) - frames, 70, 35);
+                    if((cornerY + 86) - frames > cornerY - 35 && (cornerY + 86) - frames < (cornerY + 15)){
+                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 74) - frames, 70, 35);
                     }
-                    if (frames > 83 && frames < 70){
-                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 78) - frames, 70, 35);
+                    if((cornerY + 102) - frames > cornerY - 35 && (cornerY + 108) - frames < (cornerY + 15)){
+                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 90) - frames, 70, 35);
                     }
-                    if (frames > 99 && frames < 70){
-                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 94) - frames, 70, 35);
+                    if((cornerY + 118) - frames > cornerY - 35 && (cornerY + 118) - frames < (cornerY + 15)){
+                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 106) - frames, 70, 35);
                     }
-                    if (frames > 115 && frames < 70){
-                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 110) - frames, 70, 35);
+                    if((cornerY + 134) - frames > cornerY - 35 && (cornerY + 134) - frames < (cornerY + 15)){
+                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 122) - frames, 70, 35);
                     }
-                    if (frames > 131 && frames < 70){
-                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 126) - frames, 70, 35);
+                    if((cornerY + 150) - frames > cornerY - 35 && (cornerY + 150) - frames < (cornerY + 15)){
+                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 138) - frames, 70, 35);
                     }
-                    if (frames > 147 && frames < 70){
-                        ctx.drawImage(secondTrain.front,cornerX,(cornerY + 142) - frames, 70, 35);
+                    if((cornerY + 166) - frames > cornerY - 35 && (cornerY + 166) - frames < (cornerY + 15)){
+                        ctx.drawImage(secondTrain.front,cornerX,(cornerY + 154) - frames, 70, 35);
                     }
                     //vuelta
                     if(cornerX + frames > cornerX + 30 && frames < 150){
                         ctx.drawImage(cornerPiece,cornerX,cornerY,70,70);
                     }
+                    
                     frames++;
                 } else {
                     drawGridLines();

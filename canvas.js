@@ -94,13 +94,15 @@ function moveTrain(){
 }
 
 function animateTrain(){
-    var vuelta = new UpRightTrack();
+    var vuelta = new CrossingTrack();
     var via = new Image();
     via.src = vuelta.source;
     vuelta.position.push(0,0);
     ctx.drawImage(via,150,80,70,70);
-    vuelta.direction = 0;
+    vuelta.direction = [3];
     vuelta.animate();
+    
+
 }
 //     var movingTrain = new Train();
 //     var track = new Image();
