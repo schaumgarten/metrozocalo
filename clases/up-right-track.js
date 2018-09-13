@@ -15,7 +15,7 @@ class UpRightTrack {
         } else if (previousY < this.position[1]){
             xPositionNext = this.position[0]+1;
             yPositionNext = this.position[1];
-            this.direction = 0;
+            this.direction = 1  ;
         }    
     }
     animate(){
@@ -34,62 +34,64 @@ class UpRightTrack {
         var cornerY = (this.position[1]*70)+80; 
         var dir = this.direction;
         var frames = this.frames;
-        var int = setInterval(movie,1000/60);
+        var int = setInterval(movie,1000/20);
         
         function movie(){
             if (dir === 0){
                 if (frames < 200){
                     ctx.drawImage(track, cornerX + 1, cornerY + 1, 68, 68);
                     //sección horizontal
-                    if((cornerX + 70) - frames < cornerX + 70 && (cornerX + 70) - frames > cornerX + 35){
-                        ctx.drawImage(movingTrain.trainBack, (cornerX + 70) - frames, cornerY, 35, 70);
-                    }
-                    if((cornerX + 86) - frames < cornerX + 70 && (cornerX + 86) - frames > cornerX + 35){
-                        ctx.drawImage(movingTrain.wagonFront, (cornerX + 86) - frames, cornerY , 35 , 70);
-                    }
-                    if((cornerX + 102) - frames < cornerX + 70 && (cornerX + 102) - frames > cornerX + 35){
-                        ctx.drawImage(movingTrain.wagonBack, (cornerX + 102) - frames, cornerY, 35, 70);
-                    }
-                    if((cornerX + 118) - frames < cornerX + 70 && (cornerX + 118) - frames>cornerX + 35){
-                        ctx.drawImage(movingTrain.wagonFront, (cornerX + 118) - frames, cornerY, 35, 70);
-                    }
-                    if((cornerX + 134) - frames < cornerX + 70 && (cornerX + 134) - frames > cornerX + 35){
-                        ctx.drawImage(movingTrain.wagonBack, (cornerX + 134) - frames, cornerY, 35, 70);
-                    }
-                    if ((cornerX + 150) - frames < cornerX + 70 && (cornerX + 150) - frames > cornerX + 35 ){
-                        ctx.drawImage(movingTrain.wagonFront,(cornerX + 150) - frames, cornerY, 35, 70);
-                    }
-                    if ((cornerX + 166) - frames < cornerX + 70 && (cornerX + 166) - frames>cornerX + 35){
-                        ctx.drawImage(movingTrain.wagonBack, (cornerX + 166) - frames, cornerY, 35, 70);
-                    }
-                    if ((cornerX + 182) - frames < cornerX + 70 && (cornerX + 182) - frames > cornerX + 35){
-                        ctx.drawImage(movingTrain.front, (cornerX + 182) - frames, cornerY, 35, 70);
-                    }
+                    magia (100, 70, 0, 1, cornerX, cornerY, movingTrain, frames);
+                    // if((cornerX + 70) - frames < cornerX + 70 && (cornerX + 70) - frames > cornerX + 35){
+                    //     ctx.drawImage(movingTrain.trainBack, (cornerX + 70) - frames, cornerY, 35, 70);
+                    // }
+                    // if((cornerX + 86) - frames < cornerX + 70 && (cornerX + 86) - frames > cornerX + 35){
+                    //     ctx.drawImage(movingTrain.wagonFront, (cornerX + 86) - frames, cornerY , 35 , 70);
+                    // }
+                    // if((cornerX + 102) - frames < cornerX + 70 && (cornerX + 102) - frames > cornerX + 35){
+                    //     ctx.drawImage(movingTrain.wagonBack, (cornerX + 102) - frames, cornerY, 35, 70);
+                    // }
+                    // if((cornerX + 118) - frames < cornerX + 70 && (cornerX + 118) - frames>cornerX + 35){
+                    //     ctx.drawImage(movingTrain.wagonFront, (cornerX + 118) - frames, cornerY, 35, 70);
+                    // }
+                    // if((cornerX + 134) - frames < cornerX + 70 && (cornerX + 134) - frames > cornerX + 35){
+                    //     ctx.drawImage(movingTrain.wagonBack, (cornerX + 134) - frames, cornerY, 35, 70);
+                    // }
+                    // if ((cornerX + 150) - frames < cornerX + 70 && (cornerX + 150) - frames > cornerX + 35 ){
+                    //     ctx.drawImage(movingTrain.wagonFront,(cornerX + 150) - frames, cornerY, 35, 70);
+                    // }
+                    // if ((cornerX + 166) - frames < cornerX + 70 && (cornerX + 166) - frames>cornerX + 35){
+                    //     ctx.drawImage(movingTrain.wagonBack, (cornerX + 166) - frames, cornerY, 35, 70);
+                    // }
+                    // if ((cornerX + 182) - frames < cornerX + 70 && (cornerX + 182) - frames > cornerX + 35){
+                    //     ctx.drawImage(movingTrain.front, (cornerX + 182) - frames, cornerY, 35, 70);
+                    // }
                     //sección vertical 
-                    if((cornerY + 54) - frames > cornerY - 35 && (cornerY + 54) - frames < (cornerY + 15)){
-                        ctx.drawImage(secondTrain.trainBack,cornerX,(cornerY +42) - frames, 70, 35);
-                    }
-                    if((cornerY + 70) - frames > cornerY - 35 && (cornerY + 70) - frames < (cornerY + 15)){
-                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 58) - frames, 70, 35);
-                    }
-                    if((cornerY + 86) - frames > cornerY - 35 && (cornerY + 86) - frames < (cornerY + 15)){
-                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 74) - frames, 70, 35);
-                    }
-                    if((cornerY + 102) - frames > cornerY - 35 && (cornerY + 108) - frames < (cornerY + 15)){
-                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 90) - frames, 70, 35);
-                    }
-                    if((cornerY + 118) - frames > cornerY - 35 && (cornerY + 118) - frames < (cornerY + 15)){
-                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 106) - frames, 70, 35);
-                    }
-                    if((cornerY + 134) - frames > cornerY - 35 && (cornerY + 134) - frames < (cornerY + 15)){
-                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 122) - frames, 70, 35);
-                    }
-                    if((cornerY + 150) - frames > cornerY - 35 && (cornerY + 150) - frames < (cornerY + 15)){
-                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 138) - frames, 70, 35);
-                    }
-                    if((cornerY + 166) - frames > cornerY - 35 && (cornerY + 166) - frames < (cornerY + 15)){
-                        ctx.drawImage(secondTrain.front,cornerX,(cornerY + 154) - frames, 70, 35);
-                    }
+                    magia (0,35,1,0,cornerX,cornerY,trenecito,cuadros);
+                    // if((cornerY + 54) - frames > cornerY - 35 && (cornerY + 54) - frames < (cornerY + 15)){
+                    //     ctx.drawImage(secondTrain.trainBack,cornerX,(cornerY +42) - frames, 70, 35);
+                    // }
+                    // if((cornerY + 70) - frames > cornerY - 35 && (cornerY + 70) - frames < (cornerY + 15)){
+                    //     ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 58) - frames, 70, 35);
+                    // }
+                    // if((cornerY + 86) - frames > cornerY - 35 && (cornerY + 86) - frames < (cornerY + 15)){
+                    //     ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 74) - frames, 70, 35);
+                    // }
+                    // if((cornerY + 102) - frames > cornerY - 35 && (cornerY + 108) - frames < (cornerY + 15)){
+                    //     ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 90) - frames, 70, 35);
+                    // }
+                    // if((cornerY + 118) - frames > cornerY - 35 && (cornerY + 118) - frames < (cornerY + 15)){
+                    //     ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 106) - frames, 70, 35);
+                    // }
+                    // if((cornerY + 134) - frames > cornerY - 35 && (cornerY + 134) - frames < (cornerY + 15)){
+                    //     ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY + 122) - frames, 70, 35);
+                    // }
+                    // if((cornerY + 150) - frames > cornerY - 35 && (cornerY + 150) - frames < (cornerY + 15)){
+                    //     ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY + 138) - frames, 70, 35);
+                    // }
+                    // if((cornerY + 166) - frames > cornerY - 35 && (cornerY + 166) - frames < (cornerY + 15)){
+                    //     ctx.drawImage(secondTrain.front,cornerX,(cornerY + 154) - frames, 70, 35);
+                    // }
                     //vuelta
                     if(cornerX + frames > cornerX + 30 && frames < 150){
                         ctx.drawImage(cornerPiece,cornerX,cornerY,70,70);
@@ -102,9 +104,18 @@ class UpRightTrack {
                 }
             } else if (dir === 1){
                 if (frames < 200){
-
+                    ctx.drawImage(track, cornerX + 1, cornerY + 1, 68, 68);
+                    //seccion horizontal
+                    magia(60, 100, 0, 0, cornerX, cornerY, movingTrain, frames);
+                    //sección vertical
+                    magia (0, 100, 1 , 0,cornerX,cornerY,secondTrain,frames);
+                     //vuelta
+                     if(cornerX + frames > cornerX + 30 && frames < 150){
+                        ctx.drawImage(cornerPiece,cornerX,cornerY,70,70);
+                    }
+                    frames++;
                 } else {
-
+                    clearInterval(int);
                 }
             }
         }

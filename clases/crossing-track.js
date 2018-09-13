@@ -45,30 +45,7 @@ class CrossingTrack {
             if (dir[0] === 1){
                 if (cuadros<200){
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
-                    if((cornerX-118)+ cuadros < (cornerX+70) && (cornerX-118)+ cuadros > (cornerX-15)){
-                        ctx.drawImage(trenecito.trainBack, (cornerX-118)+cuadros, cornerY, 35, 70);
-                    }
-                    if((cornerX-102)+cuadros < (cornerX+70) && (cornerX-102)+cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonFront, (cornerX-102)+cuadros, cornerY , 35 , 70);
-                    }
-                    if((cornerX-85)+cuadros < (cornerX+70) && (cornerX-85)+cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonBack, (cornerX-85)+cuadros, cornerY, 35, 70);
-                    }
-                    if((cornerX-68)+cuadros < (cornerX+70) && (cornerX-68)+cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonFront, (cornerX-68)+cuadros, cornerY, 35, 70);
-                    }
-                    if((cornerX-51)+cuadros < (cornerX+70) && (cornerX-51)+cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonBack, (cornerX-51)+cuadros, cornerY, 35, 70);
-                    }
-                    if ((cornerX-34)+cuadros < (cornerX+70) && (cornerX-34)+cuadros>(cornerX-15) ){
-                        ctx.drawImage(trenecito.wagonFront,(cornerX-34)+cuadros, cornerY, 35, 70);
-                    }
-                    if ((cornerX-17)+cuadros < (cornerX+70) && (cornerX-17)+cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonBack, (cornerX-17)+cuadros, cornerY, 35, 70);
-                    }
-                    if (cornerX+cuadros <(cornerX+70) && cornerX+cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.front, cornerX+cuadros, cornerY, 35, 70);
-                    }
+                    magia(0,100, 0, 0, cornerX, cornerY, trenecito, cuadros);
                     ctx.clearRect(135,80,13,70);
                     cuadros++; 
                 } else {
@@ -81,31 +58,8 @@ class CrossingTrack {
             } else if (dir[0] === 0){
                 if (cuadros<200){
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
-                    if((cornerX+70) - cuadros < (cornerX+70) && (cornerX+70) - cuadros > cornerX-15){
-                        ctx.drawImage(trenecito.trainBack, (cornerX + 70) - cuadros, cornerY, 35, 70);
-                    }
-                    if((cornerX+86) - cuadros < (cornerX+70) && (cornerX+86)-cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonFront, (cornerX + 86) - cuadros, cornerY , 35 , 70);
-                    }
-                    if((cornerX+102) - cuadros < (cornerX+70) && (cornerX+102)-cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonBack, (cornerX+102) - cuadros, cornerY, 35, 70);
-                    }
-                    if((cornerX+118) - cuadros < (cornerX+70) && (cornerX+118)-cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonFront, (cornerX+118) - cuadros, cornerY, 35, 70);
-                    }
-                    if((cornerX+134) - cuadros < (cornerX+70) && (cornerX+134)-cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonBack, (cornerX + 134) - cuadros, cornerY, 35, 70);
-                    }
-                    if((cornerX+150) - cuadros < (cornerX+70) && (cornerX+150)-cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonFront,(cornerX + 150) - cuadros, cornerY, 35, 70);
-                    }
-                    if((cornerX+166) - cuadros < (cornerX+70) && (cornerX+166)-cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.wagonBack, (cornerX + 166) - cuadros, cornerY, 35, 70);
-                    }
-                    if((cornerX+182) - cuadros < (cornerX+70) && (cornerX+182)-cuadros>(cornerX-15)){
-                        ctx.drawImage(trenecito.front, (cornerX+182) - cuadros, cornerY, 35, 70);
-                    }
-                    // ctx.clearRect(135,80,13,70);
+                    magia (100,0, 0, 1, cornerX, cornerY, trenecito, cuadros);
+                    ctx.clearRect(135,80,13,70);
                     cuadros++; 
                 } else {
                     dir.splice(0,1);
@@ -115,32 +69,9 @@ class CrossingTrack {
                 }
                 
             } else if (dir[0] === 2){
-                if(cuadros<165){
+                if(cuadros<200){
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
-                    if((cornerY - 112) + cuadros < (cornerY + 70) && (cornerY - 112) + cuadros > (cornerY - 30)){
-                        ctx.drawImage(trenecitoB.trainBack,cornerX,(cornerY - 112) + cuadros, 70, 35);
-                    }
-                    if((cornerY - 96) + cuadros < (cornerY + 70) && (cornerY - 96) + cuadros > (cornerY - 30)){
-                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY - 96) + cuadros, 70, 35);
-                    }
-                    if((cornerY - 80) + cuadros < (cornerY + 70) && (cornerY - 80) + cuadros > (cornerY - 30)){
-                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY - 80) + cuadros, 70, 35);
-                    }
-                    if((cornerY - 64) + cuadros < (cornerY + 70) && (cornerY - 64) + cuadros > (cornerY - 30)){
-                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY - 64) + cuadros, 70, 35);
-                    }
-                    if((cornerY - 48) + cuadros < (cornerY + 70) && (cornerY - 48) + cuadros > (cornerY - 30)){
-                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY - 48) + cuadros, 70, 35);
-                    }
-                    if((cornerY - 32) + cuadros < (cornerY + 70) && (cornerY - 32) + cuadros > (cornerY - 30)){
-                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY - 32) + cuadros, 70, 35);
-                    }
-                    if((cornerY - 16) + cuadros < (cornerY + 70) && (cornerY - 16) + cuadros > (cornerY - 30)){
-                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY - 15) + cuadros, 70, 35);
-                    }
-                    if(cornerY + cuadros < (cornerY + 70) && cornerY + cuadros > (cornerY - 30)){
-                        ctx.drawImage(trenecitoB.front,cornerX, cornerY + cuadros, 70, 35);
-                    }
+                    magia(0,100,1,0,cornerX,cornerY,trenecitoB,cuadros);                   
                     cuadros++;                    
                 } else {
                     dir.splice(0,1);
@@ -150,32 +81,9 @@ class CrossingTrack {
                 }
                 
             } else if (dir[0] === 3){
-                if (cuadros < 220){
+                if (cuadros < 200){
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
-                    if((cornerY + 54) - cuadros > cornerY - 35 && (cornerY + 54) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.trainBack,cornerX,(cornerY + 54) - cuadros, 70, 35);
-                    }
-                    if((cornerY + 70) - cuadros > cornerY - 35 && (cornerY + 70) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY + 70) - cuadros, 70, 35);
-                    }
-                    if((cornerY + 86) - cuadros > cornerY - 35 && (cornerY + 86) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY + 86) - cuadros, 70, 35);
-                    }
-                    if((cornerY + 102) - cuadros > cornerY - 35 && (cornerY + 102) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY + 102) - cuadros, 70, 35);
-                    }
-                    if((cornerY + 118) - cuadros > cornerY - 35 && (cornerY + 118) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY + 118) - cuadros, 70, 35);
-                    }
-                    if((cornerY + 134) - cuadros > cornerY - 35 && (cornerY + 134) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonFront,cornerX,(cornerY + 134) - cuadros, 70, 35);
-                    }
-                    if((cornerY + 150) - cuadros > cornerY - 35 && (cornerY + 150) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.wagonBack,cornerX,(cornerY + 150) - cuadros, 70, 35);
-                    }
-                    if((cornerY + 166) - cuadros > cornerY - 35 && (cornerY + 166) - cuadros < (cornerY + 50)){
-                        ctx.drawImage(trenecitoB.front,cornerX,(cornerY + 166) - cuadros, 70, 35);
-                    }
+                    magia(100,0,1,1,cornerX,cornerY,trenecitoB,cuadros);                 
                     cuadros++; 
                 } else {
                     dir.splice(0,1);

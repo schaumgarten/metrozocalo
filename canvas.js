@@ -1,6 +1,5 @@
 var canvas = document.getElementById('canvas')
 var ctx = canvas.getContext("2d");
-// var ctx = document.getElementById("perro").getContext("2d");
 var selectorX = 0;
 var absoluteX = 150;
 var selectorY = 0;
@@ -94,88 +93,13 @@ function moveTrain(){
 }
 
 function animateTrain(){
-    var vuelta = new CrossingTrack();
+    var vuelta = new VerticalTrack();
     var via = new Image();
     via.src = vuelta.source;
     vuelta.position.push(0,0);
     ctx.drawImage(via,150,80,70,70);
-    vuelta.direction = [3];
+    vuelta.direction = 0;
     vuelta.animate();
     
 
 }
-//     var movingTrain = new Train();
-//     var track = new Image();
-//     var frames = 0;
-//     var secondTrain = new VerticalTrain();
-//     track.src = "./images/down-left-trackb.png";
-//     var cornerPiece = new Image();
-//     cornerPiece.src = "./images/turning.png";
-//     var cornerX = 150;
-//     var cornerY = 80;   
-//     var int = setInterval(movie,1000/60);
-//     var dir = 0;
-//     function movie(){
-//         if (dir === 0){
-//             //sección horizontal
-//             ctx.drawImage(track,150,80,70,70);
-//             if(32+frames < cornerX + 18 && 32+frames>135){
-//                 ctx.drawImage(movingTrain.trainBack, 32+frames, 80, 35, 70);
-//             }
-//             if(48+frames < cornerX + 18 && 48+frames>135){
-//                 ctx.drawImage(movingTrain.wagonFront, 48+frames, 80 , 35 , 70);
-//             }
-//             if(65+frames < cornerX + 18 && 65+frames>135){
-//                 ctx.drawImage(movingTrain.wagonBack, 65+frames, 80, 35, 70);
-//             }
-//             if(82+frames < cornerX + 18 && 82+frames>135){
-//                 ctx.drawImage(movingTrain.wagonFront, 82+frames, 80, 35, 70);
-//             }
-//             if(99+frames < cornerX + 18 && 99+frames>135){
-//                 ctx.drawImage(movingTrain.wagonBack, 99+frames, 80, 35, 70);
-//             }
-//             if (116+frames < cornerX + 18 && 116+frames>135 ){
-//                 ctx.drawImage(movingTrain.wagonFront,116+frames, 80, 35, 70);
-//             }
-//             if (133+frames < cornerX + 18 && 133+frames>135){
-//                 ctx.drawImage(movingTrain.wagonBack, 133+frames, 80, 35, 70);
-//             }
-//             if (150+frames < cornerX + 18 && 150+frames>135){
-//                 ctx.drawImage(movingTrain.front, 150+frames, 80, 35, 70);
-//             }
-            
-//             //sección vertical
-//             if((cornerY - 112) + frames < (cornerY + 70) && (cornerY - 112) + frames > (cornerY +17)){
-//                 ctx.drawImage(secondTrain.trainBack,cornerX,(cornerY - 112) + frames, 70, 35);
-//             }
-//             if((cornerY - 96) + frames < (cornerY + 70) && (cornerY - 96) + frames > (cornerY +17)){
-//                 ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY - 96) + frames, 70, 35);
-//             }
-//             if((cornerY - 80) + frames < (cornerY + 70) && (cornerY - 80) + frames > (cornerY +17)){
-//                 ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY - 80) + frames, 70, 35);
-//             }
-//             if((cornerY - 64) + frames < (cornerY + 70) && (cornerY - 64) + frames > (cornerY +17)){
-//                 ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY - 64) + frames, 70, 35);
-//             }
-//             if((cornerY - 48) + frames < (cornerY + 70) && (cornerY - 48) + frames > (cornerY +17)){
-//                 ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY - 48) + frames, 70, 35);
-//             }
-//             if((cornerY - 32) + frames < (cornerY + 70) && (cornerY - 32) + frames > (cornerY +17)){
-//                 ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY - 32) + frames, 70, 35);
-//             }
-//             if((cornerY - 16) + frames < (cornerY + 70) && (cornerY - 16) + frames > (cornerY +17)){
-//                 ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY - 15) + frames, 70, 35);
-//             }
-//             if(cornerY + frames < (cornerY + 70) && cornerY + frames > (cornerY +17)){
-//                 ctx.drawImage(secondTrain.front,cornerX, cornerY + frames, 70, 35);
-//             }
-//             //vuelta
-//             if(150+frames > cornerX +18 && frames < 140){
-//                 ctx.drawImage(cornerPiece,cornerX,cornerY,70,70);
-//             }
-//             ctx.clearRect(135,80,13,70);
-//             frames++; 
-
-//         }
-//     }
-// }

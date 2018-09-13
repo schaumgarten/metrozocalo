@@ -42,58 +42,13 @@ class DownLeftTrack {
                 if (frames < 200){
                     //sección horizontal
                     ctx.drawImage(track,cornerX + 1,cornerY + 1, 68, 68);
-                    if((cornerX - 118) + frames < cornerX + 18 && (cornerX - 118) + frames>cornerX-15){
-                        ctx.drawImage(movingTrain.trainBack, (cornerX-118) + frames, cornerY, 35, 70);
-                    }
-                    if((cornerX-102)+frames < cornerX + 18 && (cornerX-102)+frames>cornerX-15){
-                        ctx.drawImage(movingTrain.wagonFront, (cornerX-102)+frames, cornerY , 35 , 70);
-                    }
-                    if((cornerX-85)+frames < cornerX + 18 && (cornerX-85)+frames>cornerX-15){
-                        ctx.drawImage(movingTrain.wagonBack, (cornerX-85)+frames, cornerY, 35, 70);
-                    }
-                    if((cornerX-68)+frames < cornerX + 18 && (cornerX-68)+frames>cornerX-15){
-                        ctx.drawImage(movingTrain.wagonFront, (cornerX-68)+frames, cornerY, 35, 70);
-                    }
-                    if((cornerX-51)+frames < cornerX + 18 && (cornerX-51)+frames>cornerX-15){
-                        ctx.drawImage(movingTrain.wagonBack, (cornerX-51)+frames, cornerY, 35, 70);
-                    }
-                    if ((cornerX-34)+frames < cornerX + 18 && (cornerX-34)+frames>cornerX-15 ){
-                        ctx.drawImage(movingTrain.wagonFront,(cornerX-34)+frames, cornerY, 35, 70);
-                    }
-                    if ((cornerX-17)+frames < cornerX + 18 && (cornerX-17)+frames>cornerX-15){
-                        ctx.drawImage(movingTrain.wagonBack, (cornerX-17)+frames, cornerY, 35, 70);
-                    }
-                    if (cornerX+frames < cornerX + 18 && cornerX+frames>cornerX-15){
-                        ctx.drawImage(movingTrain.front, cornerX+frames, cornerY, 35, 70);
-                    }
-                    
+                    magia(0,30, 0, 0, cornerX, cornerY, movingTrain, frames);
+                                        
                     //sección vertical
-                    if((cornerY - 112) + frames < (cornerY + 70) && (cornerY - 112) + frames > (cornerY +17)){
-                        ctx.drawImage(secondTrain.trainBack,cornerX,(cornerY - 112) + frames, 70, 35);
-                    }
-                    if((cornerY - 96) + frames < (cornerY + 70) && (cornerY - 96) + frames > (cornerY +17)){
-                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY - 96) + frames, 70, 35);
-                    }
-                    if((cornerY - 80) + frames < (cornerY + 70) && (cornerY - 80) + frames > (cornerY +17)){
-                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY - 80) + frames, 70, 35);
-                    }
-                    if((cornerY - 64) + frames < (cornerY + 70) && (cornerY - 64) + frames > (cornerY +17)){
-                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY - 64) + frames, 70, 35);
-                    }
-                    if((cornerY - 48) + frames < (cornerY + 70) && (cornerY - 48) + frames > (cornerY +17)){
-                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY - 48) + frames, 70, 35);
-                    }
-                    if((cornerY - 32) + frames < (cornerY + 70) && (cornerY - 32) + frames > (cornerY +17)){
-                        ctx.drawImage(secondTrain.wagonFront,cornerX,(cornerY - 32) + frames, 70, 35);
-                    }
-                    if((cornerY - 16) + frames < (cornerY + 70) && (cornerY - 16) + frames > (cornerY +17)){
-                        ctx.drawImage(secondTrain.wagonBack,cornerX,(cornerY - 15) + frames, 70, 35);
-                    }
-                    if(cornerY + frames < (cornerY + 70) && cornerY + frames > (cornerY +17)){
-                        ctx.drawImage(secondTrain.front,cornerX, cornerY + frames, 70, 35);
-                    }
+                    magia(67,100,1,0,cornerX,cornerY,secondTrain,frames);
+                    
                     //vuelta
-                    if(cornerX + frames > cornerX +18 && frames < 140){
+                    if(cornerX + frames > cornerX + 20 && frames < 168){
                         ctx.drawImage(cornerPiece,cornerX,cornerY,70,70);
                     }
                     frames++; 
@@ -103,7 +58,7 @@ class DownLeftTrack {
                 }
             } else if (dir === 1){
                 if (frames < 200){
-                    ctx.drawImage(track, cornerX + 1, cornerY + 1, 68, 68);
+                    ctx.drawImage(track, cornerX + 1, cornerY + 1, 68, 66);
                     //sección horizontal
                     if((cornerX + 70) - frames < cornerX + 18 && (cornerX + 70) - frames > cornerX -15){
                         ctx.drawImage(movingTrain.trainBack, (cornerX + 70) - frames, cornerY, 35, 70);
