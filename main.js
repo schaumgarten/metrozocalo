@@ -14,7 +14,7 @@ var yPositionNext=0;
 var travelLog = [];
 var numberOfSlots = 70;
 var piecesArray = [];
-var piecesPlaced = 0;
+var piecesPlaced = 5;
 var pathPieces = []
 var movingPieces = []
 var expectedPieces = [2,3,6];
@@ -66,12 +66,16 @@ function formArray(){
 
 
 function  tracePath(valorX,valorY){
-    console.log(valorX,valorY);
+    if (valorX > 9 || valorY > 6){
+        return false;
+    }
+    // console.log(valorX,valorY);
     var piece = cuadricula[valorX][valorY];
+    //console.log(piece);
     if(typeof piece == 'object' && checkIfMatches(piece) === true){
-        pathPieces.push(piece);
-        console.log(piece);
+        //console.log(piece);
         piece.task(xPositionCurrent,yPositionCurrent);
+        pathPieces.push(piece);
     } else {
         return false;
     }
@@ -90,16 +94,43 @@ function verifyPath(){
         }
     }
 }
+
 // console.log(travelLog);
+function comparePaths(){
+    pathPieces.forEach(function(piece,index){
+        // console.log(piece);
+        // console.log(movingPieces[index]);
+        if (piece === movingPieces[index]){
+            // console.log("todo igualitio")
+        } else {
+            // console.log("diferente! pieza:" + piece.id);
+            movingPieces.splice(index,1,piece);
+        }
+    })
+}
+
 
 function placePiece(x,y){
+    if (typeof cuadricula[x][y] == 'object'){
+        var changing = new Changing();
+        changing.position.push(x,y);
+        cuadricula[x].splice(y,1,changing);
+        refresh();
+        setTimeout(function(){
+             placing();
+             refresh();
+        },500) 
+    } else {
+        placing();
+    }
+    function placing(){
     piecesPlaced++;
     let placedPiece = piecesArray[4];
     placedPiece.position.push(x,y);
     cuadricula[x].splice(y,1,placedPiece);
     piecesArray.pop();
     piecesArray.unshift(getRandomPiece());
-    
+    }
 }
 
 function initPlacement(){
@@ -116,12 +147,25 @@ formArray();
 //console.log(piecesArray);
 
 function checkIfWinner(){
-       
-   if(xPositionNext === 10){
+       setInterval(dibujos,1000/60);
+       function dibujos(){
+   if(xPositionNext === 10 && yPositionNext === 6){
         console.log("ganaste");
+        ctx.fillStyle = "blue";
+        ctx.fillRect(0, 0, canvas.width,canvas.height);
+        ctx.fillStyle = "white";
+        ctx.font = "70px metro";
+        ctx.fillText("¡Ganaste!", 210, 290);
+        ctx.fillText("Puntaje " + loop , 190,380);
     } else {
-        console.log("perdedor");
+        ctx.fillStyle = "red";
+        ctx.fillRect(0, 0, canvas.width,canvas.height);
+        ctx.fillStyle = "white";
+        ctx.font = "70px metro";
+        ctx.fillText("¡Perdiste!", 210, 290);
+        ctx.fillText("Ctrl + R", 240,380);
     }
+}
 }
 
 function startGame(){
@@ -132,22 +176,34 @@ function startGame(){
     drawStock();
     initPlacement();
     drawGrid();
-    ctx.clearRect(135,80,13,70);
     //animateTrain();  
 }
 
+function refresh(){
+    drawCanvas();
+    drawGridLines();
+    drawSelector();
+    drawGrid();
+    drawStock();
+}
 
 
+// setInterval(function(){
+//     //verifyPath(); 
+//     checkIfWinner();
+//     //moveTrain();
+// },50000);
 
-setInterval(function(){
-    //verifyPath(); 
-    checkIfWinner();
-    //moveTrain();
-},50000);
+
 
 
 var startButton = document.getElementById("start-button");
 startButton.onclick =function(){
+    var instrucciones = document.getElementById("instrucciones");
+    var body = document.getElementById('body');
+    var boton = document.getElementById('boton');
+    body.removeChild(instrucciones);
+    body.removeChild(boton);
     startGame();
     delayTrain();
 };
@@ -156,24 +212,29 @@ function delayTrain(){
     setTimeout(function(){
         //console.log("hola");
         verifyPath();
+        createMovingPath();
         moveTrain();   
         setInterval(function(){
             //console.log("holi")
             //reassignTracingValues();
-            verifyPath();    
+            xPositionCurrent = -1;
+            yPositionCurrent = 0;
+            xPositionNext = 0;
+            yPositionNext = 0;
+            expectedPieces = [2,3,6];
+            pathPieces = [];
+            verifyPath(); 
+            comparePaths();   
             //console.log(pathPieces);         
-        },1000);       
-    },5000);
+        },500);       
+    },20000);
 }
 
-// function reassignTracingValues(){
-//     let secondToLastPiece = pathPieces.length - 2;
-//     let x = pathPieces[secondToLastPiece -1].position[0];
-//     let y = pathPieces[secondToLastPiece - 1].position[1];
-//     pathPieces[secondToLastPiece].task(x,y);
-//     console.log('x:' + x, 'y:' + y);
-//     console.log("xPositionNext:" + xPositionNext, "yPositionNext" + yPositionNext )
-// }
+function createMovingPath(){
+    pathPieces.forEach(function(piece){
+        movingPieces.push(piece);
+    });
+}
 
 var tren = new Train();
 
@@ -200,13 +261,8 @@ document.addEventListener("keydown", function(e){
         placeOnCanvas();
     }
     
-    drawCanvas();
-    drawGridLines();
-    drawSelector();
-    drawGrid();
-    drawStock();
-    //drawTrain();
-   
+    refresh();
+    
   });
   
 

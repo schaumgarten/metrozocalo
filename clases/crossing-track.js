@@ -3,7 +3,7 @@ class CrossingTrack {
         this.id = 3;
         this.position = []
         this.source = "./images/crossing-track.png"
-        this.direction = [];
+        this.direction = 1;
     }
     
     task(previousX,previousY) {
@@ -12,22 +12,26 @@ class CrossingTrack {
         if (previousX < this.position[0]){
             xPositionNext = this.position[0]+1;
             yPositionNext = this.position[1];
-            this.direction.push(1);
+            // this.direction.push(1);
+            this.direction = 1;
             expectedPieces = [2,3,6,7];
         } else if (previousX > this.position[0]) {
             xPositionNext = this.position[0]-1;
             yPositionNext = this.position[1];
-            this.direction.push(0);
+            // this.direction.push(0);
+            this.direction = 0;
             expectedPieces = [2,3,4,5];
         } else if (previousY < this.position[1]){
             xPositionNext = this.position[0]
             yPositionNext = this.position[1]+1;
-            this.direction.push(2);
+            // this.direction.push(2);
+            this.direction = 2;
             expectedPieces = [1,3,4,7];
         } else if (previousY > this.position[1]) {
             xPositionNext = this.position[0]
             yPositionNext = this.position[1]-1;
-            this.direction.push(3);
+            // this.direction.push(3);
+            this.direction = 3;
             expectedPieces = [1,3,6,5];
         }
     }
@@ -46,51 +50,55 @@ class CrossingTrack {
         var int = setInterval(movie,1000/60);
         var dir = this.direction;
         function movie(){
-            if (dir[0] === 1){
-                if (cuadros<200){
+            if (dir === 1){
+                if (cuadros<195){
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
                     magia(0,100, 0, 0, cornerX, cornerY, trenecito, cuadros);
                     ctx.clearRect(135,80,13,70);
                     cuadros++; 
                 } else {
-                    dir.splice(0,1);
+                    // dir.splice(0,1);
+                    // console.log(dir)
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
                     drawGridLines();
                     clearInterval(int);
                 }
                 
-            } else if (dir[0] === 0){
-                if (cuadros<200){
+            } else if (dir === 0){
+                if (cuadros<195){
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
                     magia (100,0, 0, 1, cornerX, cornerY, trenecito, cuadros);
                     ctx.clearRect(135,80,13,70);
                     cuadros++; 
                 } else {
-                    dir.splice(0,1);
+                    // dir.splice(0,1);
+                    // console.log(dir)
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
                     drawGridLines();
                     clearInterval(int);
                 }
                 
-            } else if (dir[0] === 2){
-                if(cuadros<200){
+            } else if (dir === 2){
+                if(cuadros<195){
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
                     magia(0,100,1,0,cornerX,cornerY,trenecitoB,cuadros);                   
                     cuadros++;                    
                 } else {
-                    dir.splice(0,1);
+                    // dir.splice(0,1);
+                    // console.log(dir)
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
                     drawGridLines();
                     clearInterval(int);
                 }
                 
-            } else if (dir[0] === 3){
-                if (cuadros < 200){
+            } else if (dir === 3){
+                if (cuadros < 195){
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
                     magia(100,0,1,1,cornerX,cornerY,trenecitoB,cuadros);                 
                     cuadros++; 
                 } else {
-                    dir.splice(0,1);
+                    // dir.splice(0,1);
+                    // console.log(dir)
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
                     drawGridLines();
                     clearInterval(int);

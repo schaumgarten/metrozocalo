@@ -35,6 +35,7 @@ class HorizontalTrack {
         function movie(){
             if (dir === 1){
                 if (frames<200){
+                    ctx.clearRect(135,80,13,70);
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
                     magia(0,100, 0, 0, cornerX, cornerY, trenecito, frames);
                     frames++; 
@@ -46,6 +47,7 @@ class HorizontalTrack {
                 
             } else {
                 if (frames<200){
+                    ctx.clearRect(135,80,13,70);
                     ctx.drawImage(via,cornerX+1,cornerY+1,68,68);
                     magia (100,0, 0, 1, cornerX, cornerY, trenecito, frames);
                     ctx.clearRect(135,80,13,70);

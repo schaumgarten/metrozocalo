@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Metro Zocalo - Pino Suarez</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <button id="start-button">Start</button>
+<body id="body">
+    <div id="instrucciones">
+       <h1>METRO ZÓCALO-PINO SUÁREZ</h1>
+        <h2>¡Las vías del metro han desaparecido!<h3>
+        <p>Mueve el cursor con las flechas del teclado</p>
+        <p>Coloca las piezas pulsando la letra 'A'</p>
+        <p>La siguiente pieza disponible está de tu lado izquierdo</p>
+    </div>
+    <div id="boton">
+        <button id="start-button"></button>
+        <p class="leyenda"> ¡Pica el boleto del metro para comenzar!</p>
+    </div>
     <canvas id="canvas" width="900" height="600"></canvas>
     <script src="./canvas.js"></script>
+    <script src="./clases/changing.js"></script>
     <script src="./clases/formula.js"></script>
     <script src="./clases/up-left-track.js"></script>
     <script src="./clases/trains.js"></script>

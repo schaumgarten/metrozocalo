@@ -1,3 +1,4 @@
+var loop = 0;
 var canvas = document.getElementById('canvas')
 var ctx = canvas.getContext("2d");
 var selectorX = 0;
@@ -6,13 +7,17 @@ var selectorY = 0;
 var absoluteY = 80;
 
 function drawCanvas(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    //ctx.fillRect(0,0,canvas.width,canvas.height);
     ctx.strokeStyle = "black";
     ctx.lineWidth = 1;
     ctx.strokeRect(0,0,canvas.width,canvas.height);
+    ctx.clearRect(150,80,700,490);
     ctx.strokeRect(150,80,700,490);
+    ctx.clearRect(44,80,70,350);
     ctx.strokeRect(44,80,70,350);
-    
+    ctx.clearRect(50,20, 270, 40);
+            ctx.font = "30px metro";
+            ctx.fillText("Puntaje " + loop ,50,50);  
 }
 
 function drawGridLines(){
@@ -80,18 +85,23 @@ function drawStock(){
 }
 
 function moveTrain(){
-    let loop = 0;
     var int = setInterval(moving,(1000/60)*70);
     function moving(){
-        if (loop < pathPieces.length){
-            pathPieces[loop].animate();
+        if (loop < movingPieces.length){
+            movingPieces[loop].animate();
             loop++;
-            console.log("puntos: "+loop);
+            ctx.clearRect(50,20, 270, 40);
+            ctx.font = "30px metro";
+            ctx.fillText("Puntaje " + loop ,50,50);
+            console.log("loop "+loop);
         } else {
             clearInterval(int);
+            checkIfWinner();
         }       
     }
 }
+
+
 
 function animateTrain(){
     var vuelta = new UpLeftTrack();

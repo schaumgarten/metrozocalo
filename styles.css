@@ -1,0 +1,42 @@
+@font-face {
+    font-family: metro;
+    src: url(./fonts/METRO-DF.TTF);
+}
+
+body{
+    font-family: metro, sans;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;  
+    
+}
+
+#start-button {
+    background-image: url(./images/boleto.jpg);
+    width: 237px;
+    height: 134px;
+    display: block;
+    margin-left: 110px;
+    
+}
+
+ 
+ /* button#start-button {
+    background: url(./images/boleto.jpg) no-repeat;
+ } */
+
+ #instrucciones{
+     color: white;
+     text-align: center;
+     padding: 5%;
+     background-color: blue;
+ }
+ 
+    #boton {
+    padding: 40px 20px 20px 110px;
+    }
+
+ .leyenda {
+     margin-left: -116;
+ }
