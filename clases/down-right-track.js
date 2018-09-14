@@ -1,19 +1,19 @@
-class DownLeftTrack {
+class DownRightTrack {
     constructor(){
-        this.id = 6;
+        this.id = 5;
         this.position = []
-        this.source = "./images/down-left-track.png"
+        this.source = "./images/down-right-track.png"
         this.direction = 0;
     }
-    task(previousX,previousY){
+    task(previousX,previousY) {
         xPositionCurrent = this.position[0];
         yPositionCurrent = this. position[1];
-        if (previousX < this.position [0]){
+        if (previousX > this.position [0]){
             xPositionNext = this.position[0];
-            yPositionNext = this.position[1]+1;
-            this.direction = 0; 
+            yPositionNext = this.position[1]+1; 
+            this.direction = 0;
         } else if (previousY > this.position[1]){
-            xPositionNext = this.position[0]-1;
+            xPositionNext = this.position[0]+1;
             yPositionNext = this.position[1];
             this.direction = 1;
         }    
@@ -24,8 +24,8 @@ class DownLeftTrack {
         this.vertTrain = new VerticalTrain();
         this.via = new Image();
         this.vuelta = new Image();
-        this.via.src = "./images/down-left-trackb.png";
-        this.vuelta.src = "./images/turning.png";
+        this.via.src = "./images/down-right-trackb.png";
+        this.vuelta.src = "./images/turning-1-1.png";
         var track = this.via;    
         var movingTrain = this.train1;
         var secondTrain = this.vertTrain;
@@ -42,7 +42,7 @@ class DownLeftTrack {
                 if (frames < 200){
                     //sección horizontal
                     ctx.drawImage(track,cornerX + 1,cornerY + 1, 68, 68);
-                    magia(0,30, 0, 0, cornerX, cornerY, movingTrain, frames);
+                    magia (100, 70, 0, 1, cornerX, cornerY, movingTrain, frames);
                                         
                     //sección vertical
                     magia(67,100,1,0,cornerX,cornerY,secondTrain,frames);
@@ -60,7 +60,7 @@ class DownLeftTrack {
                 if (frames < 200){
                     ctx.drawImage(track, cornerX + 1, cornerY + 1, 68, 66);
                     //sección horizontal
-                    magia(30, 0, 0, 1, cornerX, cornerY, movingTrain, frames);
+                    magia(70,100,0,0,cornerX,cornerY,movingTrain,frames);
                                         
                     //sección vertical
                     magia(100,70,1,1,cornerX,cornerY,secondTrain,frames);
@@ -79,3 +79,4 @@ class DownLeftTrack {
         }
     }    
 }
+ 

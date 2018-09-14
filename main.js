@@ -14,7 +14,7 @@ var yPositionNext=0;
 var travelLog = [];
 var numberOfSlots = 70;
 var piecesArray = [];
-var piecesPlaced = 0;
+//var piecesPlaced = 0;
 var pathPieces = []
 
 function  tracePath(valorX,valorY){
@@ -80,7 +80,7 @@ function verifyPath(){
 // console.log(travelLog);
 
 function placePiece(x,y){
-    piecesPlaced++;
+    //piecesPlaced++;
     let placedPiece = piecesArray[4];
     placedPiece.position.push(x,y);
     cuadricula[x].splice(y,1,placedPiece);
@@ -89,13 +89,22 @@ function placePiece(x,y){
     
 }
 
+function initPlacement(){
+    let origin = new HorizontalTrack();
+    let end = new HorizontalTrack();
+    origin.position.push(0,0);
+    end.position.push(9,6);
+    cuadricula[0].splice(0,1,origin);
+    cuadricula[9].splice(6,1,end);
+}
+
 
 formArray();
 console.log(piecesArray);
 
 function checkIfWinner(){
     verifyPath();    
-   if(travelLog.length>=14){
+   if(travelLog.length>=14 && xPositionNext === 10){
         console.log("ganaste");
     } else {
         console.log("perdedor");
@@ -108,13 +117,16 @@ function startGame(){
     drawGridLines();
     drawSelector();
     drawStock();
+    initPlacement();
+    drawGrid();
+    ctx.clearRect(135,80,13,70);
     //animateTrain();  
 }
 
 
 setInterval(function(){
     checkIfWinner();
-},120000);
+},50000);
 
 var startButton = document.getElementById("start-button");
 startButton.onclick =function(){

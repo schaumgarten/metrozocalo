@@ -93,12 +93,12 @@ function moveTrain(){
 }
 
 function animateTrain(){
-    var vuelta = new VerticalTrack();
+    var vuelta = new UpLeftTrack();
     var via = new Image();
     via.src = vuelta.source;
     vuelta.position.push(0,0);
     ctx.drawImage(via,150,80,70,70);
-    vuelta.direction = 0;
+    vuelta.direction = 1;
     vuelta.animate();
     
 

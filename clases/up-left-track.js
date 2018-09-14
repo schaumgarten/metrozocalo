@@ -1,31 +1,30 @@
-class UpRightTrack {
-    constructor(){
-        this.id = 4;
-        this.position = []
-        this.source = "./images/up-right-track.png"
+class UpLeftTrack {constructor(){
+    this.id = 7;
+    this.position = []
+    this.source = "./images/up-left-track.png"
+    this.direction = 0;
+}
+task(previousX,previousY) {
+    xPositionCurrent = this.position[0];
+    yPositionCurrent = this. position[1];
+    if (previousX < this.position [0]){
+        xPositionNext = this.position[0];
+        yPositionNext = this.position[1]-1; 
         this.direction = 0;
-    }
-    task(previousX,previousY) {
-        xPositionCurrent = this.position[0];
-        yPositionCurrent = this. position[1];
-        if (previousX > this.position [0]){
-            xPositionNext = this.position[0];
-            yPositionNext = this.position[1]-1; 
-            this.direction = 0;
-        } else if (previousY < this.position[1]){
-            xPositionNext = this.position[0]+1;
-            yPositionNext = this.position[1];
-            this.direction = 1  ;
-        }    
-    }
-    animate(){
-        this.frames = 0;
+    } else if (previousY < this.position[1]){
+        xPositionNext = this.position[0]-1;
+        yPositionNext = this.position[1];
+        this.direction = 1;
+    }    
+}
+animate(){
+    this.frames = 0;
         this.train1 = new Train();
         this.vertTrain = new VerticalTrain();
         this.via = new Image();
         this.vuelta = new Image();
-        this.via.src = "./images/up-right-trackb.png";
-        this.vuelta.src = "./images/turning-1-0.png";
+        this.via.src = "./images/up-left-trackb.png";
+        this.vuelta.src = "./images/turning-0-0.png";
         var track = this.via;    
         var movingTrain = this.train1;
         var secondTrain = this.vertTrain;
@@ -41,7 +40,7 @@ class UpRightTrack {
                 if (frames < 200){
                     ctx.drawImage(track, cornerX + 1, cornerY + 1, 68, 68);
                     //sección horizontal
-                    magia (100, 70, 0, 1, cornerX, cornerY, movingTrain, frames);
+                    magia (0, 30, 0, 0, cornerX, cornerY, movingTrain, frames);
                     
                     //sección vertical 
                     magia (33,0,1,1,cornerX,cornerY,secondTrain,frames);
@@ -60,7 +59,7 @@ class UpRightTrack {
                 if (frames < 200){
                     ctx.drawImage(track, cornerX + 1, cornerY + 1, 68, 68);
                     //seccion horizontal
-                    magia(70, 100, 0, 0, cornerX, cornerY, movingTrain, frames);
+                    magia(30, 0, 0, 1, cornerX, cornerY, movingTrain, frames);
                     //sección vertical
                     magia (0, 10, 1 , 0,cornerX,cornerY,secondTrain,frames);
                      //vuelta
@@ -73,5 +72,6 @@ class UpRightTrack {
                 }
             }
         }
-    }   
 }
+} 
+
