@@ -12,9 +12,11 @@ class HorizontalTrack {
             xPositionNext = this.position[0]+1;
             yPositionNext = this.position[1];
             this.direction = 1;
+            expectedPieces = [2,3,6,7];
         } else if (previousX > this.position[0]){
             xPositionNext = this.position[0]-1;
             yPositionNext = this.position[1];
+            expectedPieces = [2,3,4,5];
         }
     }
     

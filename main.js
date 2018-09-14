@@ -14,19 +14,29 @@ var yPositionNext=0;
 var travelLog = [];
 var numberOfSlots = 70;
 var piecesArray = [];
-//var piecesPlaced = 0;
+var piecesPlaced = 0;
 var pathPieces = []
+var movingPieces = []
+var expectedPieces = [2,3,6];
 
-function  tracePath(valorX,valorY){
-    var piece = cuadricula[valorX][valorY];
-    if(typeof piece == 'object'){
-        piece.task(xPositionCurrent,yPositionCurrent);
-    } else {
-        return false;
-    }
+// function  tracePath(valorX,valorY){
+//     var piece = cuadricula[valorX][valorY];
+//     if(typeof piece == 'object'){
+//         piece.task(xPositionCurrent,yPositionCurrent);
+//     } else {
+//         return false;
+//     }
+// }
+
+function checkIfMatches(piece){
+    var r = false;
+    expectedPieces.forEach(function(id){
+        if (id === piece.id){
+            r = true;
+        }    
+    });
+    return r;
 }
-
-
 
 function getRandomPiece(){
     var randomNumber = Math.floor((Math.random()*7)+1);
@@ -56,22 +66,25 @@ function formArray(){
 
 
 function  tracePath(valorX,valorY){
+    console.log(valorX,valorY);
     var piece = cuadricula[valorX][valorY];
-    if(typeof piece == 'object'){
+    if(typeof piece == 'object' && checkIfMatches(piece) === true){
         pathPieces.push(piece);
+        console.log(piece);
         piece.task(xPositionCurrent,yPositionCurrent);
     } else {
         return false;
     }
-}
+} 
+
 
 //
 function verifyPath(){
-    for (var i = 0; i<numberOfSlots; i++){
-        console.log(i);
+    for (var i = 0; i<piecesPlaced; i++){
+        //console.log(i);
         var fun = tracePath(xPositionNext,yPositionNext);
         if (fun == false){
-            return;
+            break;
         } else {
             travelLog.push(xPositionCurrent,yPositionCurrent);
         }
@@ -80,7 +93,7 @@ function verifyPath(){
 // console.log(travelLog);
 
 function placePiece(x,y){
-    //piecesPlaced++;
+    piecesPlaced++;
     let placedPiece = piecesArray[4];
     placedPiece.position.push(x,y);
     cuadricula[x].splice(y,1,placedPiece);
@@ -100,10 +113,10 @@ function initPlacement(){
 
 
 formArray();
-console.log(piecesArray);
+//console.log(piecesArray);
 
 function checkIfWinner(){
-    verifyPath();    
+       
    if(xPositionNext === 10){
         console.log("ganaste");
     } else {
@@ -124,14 +137,43 @@ function startGame(){
 }
 
 
+
+
 setInterval(function(){
+    //verifyPath(); 
     checkIfWinner();
+    //moveTrain();
 },50000);
+
 
 var startButton = document.getElementById("start-button");
 startButton.onclick =function(){
-    startGame()
+    startGame();
+    delayTrain();
 };
+
+function delayTrain(){
+    setTimeout(function(){
+        //console.log("hola");
+        verifyPath();
+        moveTrain();   
+        setInterval(function(){
+            //console.log("holi")
+            //reassignTracingValues();
+            verifyPath();    
+            //console.log(pathPieces);         
+        },1000);       
+    },5000);
+}
+
+// function reassignTracingValues(){
+//     let secondToLastPiece = pathPieces.length - 2;
+//     let x = pathPieces[secondToLastPiece -1].position[0];
+//     let y = pathPieces[secondToLastPiece - 1].position[1];
+//     pathPieces[secondToLastPiece].task(x,y);
+//     console.log('x:' + x, 'y:' + y);
+//     console.log("xPositionNext:" + xPositionNext, "yPositionNext" + yPositionNext )
+// }
 
 var tren = new Train();
 

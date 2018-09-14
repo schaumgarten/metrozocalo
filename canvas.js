@@ -83,9 +83,10 @@ function moveTrain(){
     let loop = 0;
     var int = setInterval(moving,(1000/60)*70);
     function moving(){
-        if (loop<pathPieces.length){
+        if (loop < pathPieces.length){
             pathPieces[loop].animate();
             loop++;
+            console.log("puntos: "+loop);
         } else {
             clearInterval(int);
         }       

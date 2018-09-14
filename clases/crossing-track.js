@@ -13,18 +13,22 @@ class CrossingTrack {
             xPositionNext = this.position[0]+1;
             yPositionNext = this.position[1];
             this.direction.push(1);
+            expectedPieces = [2,3,6,7];
         } else if (previousX > this.position[0]) {
             xPositionNext = this.position[0]-1;
             yPositionNext = this.position[1];
             this.direction.push(0);
+            expectedPieces = [2,3,4,5];
         } else if (previousY < this.position[1]){
             xPositionNext = this.position[0]
             yPositionNext = this.position[1]+1;
             this.direction.push(2);
+            expectedPieces = [1,3,4,7];
         } else if (previousY > this.position[1]) {
             xPositionNext = this.position[0]
             yPositionNext = this.position[1]-1;
             this.direction.push(3);
+            expectedPieces = [1,3,6,5];
         }
     }
     animate(){

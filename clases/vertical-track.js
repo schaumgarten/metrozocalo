@@ -12,9 +12,11 @@ class VerticalTrack {
             xPositionNext = this.position[0]
             yPositionNext = this.position[1]+1;
             this.direction = 1;
+            expectedPieces = [1,3,4,7];
         } else if (previousY > this.position[1]){
             xPositionNext = this.position[0];
             yPositionNext = this.position[1]-1;
+            expectedPieces = [1,3,5,6];
         }
     }
     animate(){
