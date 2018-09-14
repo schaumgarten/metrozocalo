@@ -104,7 +104,7 @@ console.log(piecesArray);
 
 function checkIfWinner(){
     verifyPath();    
-   if(travelLog.length>=14 && xPositionNext === 10){
+   if(xPositionNext === 10){
         console.log("ganaste");
     } else {
         console.log("perdedor");
