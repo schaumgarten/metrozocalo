@@ -66,7 +66,7 @@ function formArray(){
 
 
 function  tracePath(valorX,valorY){
-    if (valorX > 9 || valorY > 6){
+    if (valorX > 9 || valorX < 0 || valorY > 6 || valorY < 0){
         return false;
     }
     // console.log(valorX,valorY);
