@@ -40,3 +40,7 @@ body{
  .leyenda {
      margin-left: -116;
  }
+
+ .red-text{
+     color: red;
+ }
